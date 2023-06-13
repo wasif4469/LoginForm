@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LoginForm.Models.batch>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="navbar navbar-inverse navbar-fixed-top bg-black">
+    <div style="color: white; margin: 4px;">
+        @Html.ActionLink("Student Management ", "Index", "Login")
+        @Html.ActionLink("Batch", "Index", "Batch")
+        @Html.ActionLink("Course", "Index", "Course")
+        @Html.ActionLink("Logout", "Logout", "Login")
+    </div>
+</div>
+<h2>User List</h2>
+
+<p style="color: black">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.batch1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.batch_year)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.batch1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.batch_year)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.batch_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.batch_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.batch_id })
+            </td>
+        </tr>
+    }
+
+</table>
